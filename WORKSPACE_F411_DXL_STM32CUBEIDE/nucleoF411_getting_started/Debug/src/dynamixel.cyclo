@@ -1,0 +1,17 @@
+../src/dynamixel.c:51:10:dxl_getPresentPosition	2
+../src/dynamixel.c:65:9:dxl_getPresentVelocity	2
+../src/dynamixel.c:79:9:dxl_getBaudRate	2
+../src/dynamixel.c:88:9:dxl_getFirmwareVersion	2
+../src/dynamixel.c:97:9:dxl_getModelNumber	2
+../src/dynamixel.c:108:6:dxl_change_id	1
+../src/dynamixel.c:118:6:dxl_LED	1
+../src/dynamixel.c:128:6:dxl_torque	1
+../src/dynamixel.c:138:6:dxl_setOperatingMode	1
+../src/dynamixel.c:148:6:dxl_setBaudrate	1
+../src/dynamixel.c:158:6:dxl_factoryReset	1
+../src/dynamixel.c:169:6:dxl_setGoalVelocity	1
+../src/dynamixel.c:180:6:dxl_setGoalPosition	1
+../src/dynamixel.c:191:5:dxl_sendPacket	2
+../src/dynamixel.c:226:10:dxl_updateCRC	2
+../src/dynamixel.c:267:6:dxl_rcv_cb	1
+../src/dynamixel.c:287:5:dxl_readPacket	20

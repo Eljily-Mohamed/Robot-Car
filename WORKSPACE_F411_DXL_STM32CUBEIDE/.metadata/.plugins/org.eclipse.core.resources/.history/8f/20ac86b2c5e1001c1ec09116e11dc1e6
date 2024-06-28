@@ -1,0 +1,92 @@
+/**
+  ******************************************************************************
+  * @file    main.c
+  * @author  Ac6
+  * @version V1.0
+  * @date    01-December-2013
+  * @brief   Default main function.
+  ******************************************************************************
+*/
+
+
+#include "stm32f4xx.h"
+#include "stm32f4xx_nucleo.h"
+
+#include "drv_uart.h"
+
+
+extern TIM_HandleTypeDef    TimHandle_period;
+extern uint8_t rec_buf2[NB_CAR_TO_RECEIVE+1];	 // defined in drv_uart.c
+
+int main(void)
+{
+
+	int val = 5;
+
+	HAL_Init();	// passage par stm32f4xx_hal_msp.c : configuration des broches
+	SystemClock_Config();
+
+	uart2_Init();			// CABLE
+	tickTimer_Init(3000);	// 3000 ms
+	//i2c1_Init();			// Modifier stm32f4xx_hal_msp.c pour configurer les broches
+	//spi1Init();			// Modifier stm32f4xx_hal_msp.c pour configurer les broches
+    HAL_Delay(500);
+
+	//------------------------------------------------------------
+	//	TEST LIAISON SERIE
+	// ouvrir gtkterm ou minicom / /dev/ttyCAM0 baudrate : 115200-8-N-1
+	//------------------------------------------------------------
+	term_printf("hello world \n\r");
+	term_printf("val int = %d \n\r", val);
+
+	//------------------------------------------------------------
+	//	BLINK LED : PA5
+	//------------------------------------------------------------
+	while(1)
+	{
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
+        HAL_Delay(1000); // 1000 ms
+
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
+        HAL_Delay(1000); // 1000 ms
+	}
+	return 0;
+}
+
+//=====================================================================================
+//		GPIO EXTERNAL INTERRUPT CALLBACK
+//=====================================================================================
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	switch(GPIO_Pin)
+	{
+	case GPIO_PIN_0 :
+					break;
+	case GPIO_PIN_13 :	term_printf("USER BUTTON PUSHED 2\n\r");	// USER BUTTON
+					break;
+	default : 		break;
+
+	}
+}
+//=====================================================================================
+//		TIMER INTERRUPT CALLBACK
+//=====================================================================================
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim==&TimHandle_period)
+	{
+		term_printf("Tick Timer period elapsed \n\r");
+	}
+}
+//=================================================================
+//	UART RECEIVE CALLBACK5
+//=================================================================
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
+{
+	if(UartHandle -> Instance == USART2)
+	{
+		 HAL_UART_Receive_IT(&Uart2Handle, (uint8_t *)rec_buf2, NB_CAR_TO_RECEIVE);
+	}
+
+}
+//=====================================================================================

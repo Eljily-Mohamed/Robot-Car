@@ -1,0 +1,6 @@
+../src/robot_control.c:9:6:move_up	1
+../src/robot_control.c:15:6:move_down	1
+../src/robot_control.c:21:6:move_left	1
+../src/robot_control.c:27:6:move_right	1
+../src/robot_control.c:33:6:stop_robot	1
+../src/robot_control.c:39:6:detect_line	2

@@ -1,0 +1,8 @@
+../src/util.c:10:6:num2str	7
+../src/util.c:41:14:str2num	10
+../src/util.c:57:6:reverse	2
+../src/util.c:70:5:intToStr	3
+../src/util.c:89:6:float2str	2
+../src/util.c:114:8:myPow	4
+../src/util.c:135:6:flush_ch	2
+../src/util.c:146:5:size_ch	3

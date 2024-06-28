@@ -1,0 +1,20 @@
+15:25:01 **** Incremental Build of configuration Debug for project nucleoF411_getting_started ****
+make all 
+arm-none-eabi-gcc "../src/robot_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F411RETx -DNUCLEO_F411RE -DDEBUG -DSTM32F411xE -DUSE_HAL_DRIVER -c -I"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/HAL_Driver/Inc/Legacy" -I"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/Utilities/STM32F4xx-Nucleo" -I"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/inc" -I"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/CMSIS/device" -I"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/CMSIS/core" -I"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/HAL_Driver/Inc" -O0 -ffunction-sections -Wall -fcommon -fstack-usage -MMD -MP -MF"src/robot_control.d" -MT"src/robot_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "src/robot_control.o"
+arm-none-eabi-gcc -o "nucleoF411_getting_started.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/e2023/m3eljily/Bureau/projet_robot_s6o/WORKSPACE_F411_DXL_STM32CUBEIDE/nucleoF411_getting_started/LinkerScript.ld" --specs=nosys.specs -Wl,-Map="nucleoF411_getting_started.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleoF411_getting_started.elf
+ 
+arm-none-eabi-size   nucleoF411_getting_started.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25520	     40	   2616	  28176	   6e10	nucleoF411_getting_started.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objdump -h -S  nucleoF411_getting_started.elf  > "nucleoF411_getting_started.list"
+Finished building: nucleoF411_getting_started.list
+ 
+arm-none-eabi-objcopy  -O binary  nucleoF411_getting_started.elf  "nucleoF411_getting_started.bin"
+Finished building: nucleoF411_getting_started.bin
+ 
+
+15:25:06 Build Finished. 0 errors, 0 warnings. (took 5s.269ms)
+

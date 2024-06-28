@@ -1,0 +1,61 @@
+#include "robot_control.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_nucleo.h"
+#include "drv_uart.h"
+#include "dynamixel.h"
+
+RobotState robot_state = STOPPED;
+
+void move_up(int velocity) {
+    dxl_setGoalVelocity(1, velocity);
+    dxl_setGoalVelocity(2, -velocity);
+    robot_state = MOVING_FORWARD;
+}
+
+void move_down(int velocity) {
+    dxl_setGoalVelocity(1, -velocity);
+    dxl_setGoalVelocity(2, velocity);
+    robot_state = MOVING_BACKWARD;
+}
+
+void move_left(int velocity) {
+    dxl_setGoalVelocity(1, velocity);
+    dxl_setGoalVelocity(2, velocity);
+    robot_state = TURNING_LEFT;
+}
+
+void move_right(int velocity) {
+    dxl_setGoalVelocity(1, -velocity);
+    dxl_setGoalVelocity(2, -velocity);
+    robot_state = TURNING_RIGHT;
+}
+
+void stop_robot(int velocity) {
+    dxl_setGoalVelocity(1, velocity);
+    dxl_setGoalVelocity(2, velocity);
+    robot_state = STOPPED;
+}
+
+// Function to send speed information to the client
+void send_speed() {
+    // Get the current velocities
+    int speed1 = dxl_getPresentVelocity(1);
+    int speed2 = dxl_getPresentVelocity(2);
+
+    // Send velocity information to the client
+    term_printf_zigbee("\r\nSPEEDS:%d,%d\n", speed1, speed2);
+}
+
+
+void detect_line(){
+        if(lineStateleft == GPIO_PIN_SET && lineStateRight == GPIO_PIN_SET ) {
+            move_up(30);
+        }if(lineStateleft == GPIO_PIN_SET && lineStateRight == GPIO_PIN_RESET ){
+        	move_left(10);
+        }if(lineStateRight == GPIO_PIN_SET && lineStateleft == GPIO_PIN_RESET){
+        	move_right(10);
+        }
+        if(lineStateRight == GPIO_PIN_RESET && lineStateleft == GPIO_PIN_RESET){
+            stop_robot(0);
+        }
+}

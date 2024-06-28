@@ -1,0 +1,88 @@
+#include "stm32f4xx.h"
+#include "stm32f4xx_nucleo.h"
+#include "drv_uart.h"
+#include "dynamixel.h"
+#include "robot_control.h"
+
+extern char command_send;
+extern int vitess_send;
+// Global variables
+static int maplineDetector = 0;
+
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();
+
+    HAL_MspInit();
+    uart1_Init();           // ZIGBEE
+    uart2_Init();           // CABLE
+    uart6_Init();           // DYNAMIXEL
+    HAL_Delay(500);
+
+    dxl_LED(1, LED_ON);
+    HAL_Delay(500);
+    dxl_LED(1, LED_OFF);
+    HAL_Delay(500);
+    dxl_LED(1, LED_ON );
+    HAL_Delay(500);
+    dxl_LED(1, LED_OFF);
+    HAL_Delay(500);
+
+    dxl_setOperatingMode(1, VELOCITY_MODE);
+    dxl_torque(1, TORQUE_ON);
+
+    dxl_LED(1, LED_ON);
+    HAL_Delay(500);
+    dxl_LED(1, LED_OFF);
+    HAL_Delay(500);
+    dxl_LED(1, LED_ON );
+    HAL_Delay(500);
+    dxl_LED(1, LED_OFF);
+    HAL_Delay(500);
+
+    dxl_setOperatingMode(2, VELOCITY_MODE);
+    dxl_torque(2, TORQUE_ON);
+
+
+    while (1)
+    {
+        switch (command_send)
+        {
+            case 'u':
+
+                move_up(vitess_send);
+                break;
+            case 'd':
+
+                move_down(vitess_send);
+                break;
+            case 'l':
+
+                move_left(vitess_send);
+                break;
+            case 'r':
+
+                move_right(vitess_send);
+                break;
+            case 's':
+
+                stop_robot(0);
+                break;
+            case 'a':
+
+            	detect_line();
+            	break;
+            case 'm':
+            	 maplineDetector = !maplineDetector;
+            	 break;
+            default:
+                // Handle cases if necessary
+                break;
+        }
+        // Wait for 100 ms
+        HAL_Delay(100);
+    }
+
+    //=====================================================================================
+}

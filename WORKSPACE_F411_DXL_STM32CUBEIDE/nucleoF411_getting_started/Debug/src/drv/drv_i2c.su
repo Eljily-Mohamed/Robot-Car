@@ -1,0 +1,14 @@
+../src/drv/drv_i2c.c:17:6:i2c1_Init	8	static
+../src/drv/drv_i2c.c:37:5:i2c1_WriteBuffer	40	static
+../src/drv/drv_i2c.c:46:5:i2c1_ReadBuffer	40	static
+../src/drv/drv_i2c.c:55:5:i2c1_ReadRegBuffer	40	static
+../src/drv/drv_i2c.c:72:5:i2c1_WriteRegBuffer	56	static
+../src/drv/drv_i2c.c:85:6:i2c1_WriteRegByte_IT	24	static
+../src/drv/drv_i2c.c:99:6:i2c1_ReadRegBuffer_IT	24	static
+../src/drv/drv_i2c.c:111:5:i2c1_WriteReg16Byte	32	static
+../src/drv/drv_i2c.c:126:5:i2c1_WriteReg16Word16	32	static
+../src/drv/drv_i2c.c:141:5:i2c1_WriteReg16Word32	32	static
+../src/drv/drv_i2c.c:158:5:i2c1_ReadReg16Byte	32	static
+../src/drv/drv_i2c.c:179:5:i2c1_ReadReg16Word16	32	static
+../src/drv/drv_i2c.c:201:5:i2c1_ReadReg16Word32	32	static
+../src/drv/drv_i2c.c:224:5:i2c1_ReadReg16Buffer	40	static

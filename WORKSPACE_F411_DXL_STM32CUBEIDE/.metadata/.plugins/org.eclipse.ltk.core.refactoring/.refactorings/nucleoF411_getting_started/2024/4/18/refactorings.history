@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;nucleoF411_getting_started/src/robot_control&apos; to &apos;robot_control.c&apos;" description="Rename resource &apos;robot_control&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/robot_control" name="robot_control.c" stamp="1714403598150" updateReferences="true"/>
+</session>

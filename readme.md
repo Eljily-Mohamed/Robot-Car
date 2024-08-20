@@ -13,6 +13,22 @@ L'application est construite sur une plateforme STM32, utilisant une liaison Zig
     Affichage en temps réel de la position du robot.
     Interaction intuitive avec l'IHM via une interface conviviale.
 
+### Images
+
+Below are images showing how the program works:
+
+- **Image 1: commande panel**
+  ![commande panel](./demo/commande.jpeg)
+
+- **Image 2: Hardware Setup**
+  ![Hardware Setup](path/to/your/image2.png)
+
+- **Image 3: Minicom Terminal Command**
+  ![Minicom Terminal Command](path/to/your/image3.png)
+
+- **Image 4: Real-Time Position Display**
+  ![Real-Time Position Display](path/to/your/image4.png)
+  
 ## 🏗️ Architecture du Projet
 
 L'architecture du projet se compose de plusieurs composants principaux :

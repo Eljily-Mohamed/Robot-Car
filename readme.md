@@ -17,17 +17,18 @@ L'application est construite sur une plateforme STM32, utilisant une liaison Zig
 
 Below are images showing how the program works:
 
-- **Image 1: commande panel**
-  ![commande panel](./demo/commande.jpeg)
+- **Command Panel**
+  ![Command Panel](./demo/commande.jpeg)
 
-- **Image 2: Hardware Setup**
-  ![Hardware Setup](path/to/your/image2.png)
+- **Kinematic Model**
+  ![Kinematic Model](./demo/model.jpeg)
 
-- **Image 3: Minicom Terminal Command**
-  ![Minicom Terminal Command](path/to/your/image3.png)
+- **Automation Part**
+  ![Automation Part](./demo/auto.jpeg)
 
-- **Image 4: Real-Time Position Display**
-  ![Real-Time Position Display](path/to/your/image4.png)
+- **Real-Time Test**
+  ![Real-Time Test](./demo/test.jpeg)
+
   
 ## 🏗️ Architecture du Projet
 

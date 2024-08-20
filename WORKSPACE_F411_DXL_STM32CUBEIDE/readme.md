@@ -1,4 +1,3 @@
-
 # Robot Car Unicycle Project
 
 ## Table of Contents
@@ -11,8 +10,9 @@
 7. [Serial Communication](#serial-communication)
 8. [Zigbee Wireless Communication](#zigbee-wireless-communication)
 9. [Line Following Feature](#line-following-feature)
-10. [Further Documentation](#further-documentation)
-11. [Contact Information](#contact-information)
+10. [Program Overview](#program-overview)
+11. [Further Documentation](#further-documentation)
+12. [Contact Information](#contact-information)
 
 ---
 
@@ -64,7 +64,7 @@ Below is a list of hardware components used in this project:
 - **2 XBEE Modules (XB24 or XBPRO)**
 - **1 Robotis Ball (TB3 Ball Caster)**
 - **1 U2D2 Power Hub Board Robotis**
-- **1 Grove Line Finder**
+- **2 Grove Line Finder**
 - **1 Nucleo F411 Board**
 - **2 Dynamixel XL430 Servo Motors**
 - **1 Battery Charger**
@@ -92,8 +92,6 @@ By default, the UART2 peripheral is used for sending and receiving characters vi
 
 Test this by setting a breakpoint in the callback function and sending a character from a terminal (e.g., gtkterm or minicom).
 
-Modify the program to control the motors based on the received characters.
-
 ## Zigbee Wireless Communication
 
 Zigbee is a low-speed, short-range, low-power communication protocol. In this project, Zigbee is used for point-to-point wireless communication between the robot and the PC.
@@ -115,9 +113,22 @@ Modify the program to control the motors based on characters received through th
 
 The Grove line finder sensor provides binary information to detect the presence of a black line. On the microcontroller, this sensor's input is treated as a logic input, similar to a push button.
 
-### Setup
+## Program Overview
 
-Connect the sensor to the Nucleo F411 board via the Grove Base Shield.
+When you launch the program on the STM32Cube, you can control the robot using a serial terminal such as Minicom. The commands allow you to move the robot in different directions and adjust its speed.
+
+### Commands
+- **Movement Commands**:
+  - `u`: Move Up
+  - `l`: Move Left
+  - `b`: Move Back
+  - `d`: Move Down
+
+- **Speed Control**:
+  - To move in a direction with a specific speed: `<direction>,<speed>`
+    - Example: `l,100` (Move Left with speed 100)
+  - To change speed without changing direction: `v,<speed>`
+    - Example: `v,150` (Change speed to 150 while maintaining the current direction)
 
 ## Further Documentation
 
